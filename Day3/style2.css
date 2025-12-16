@@ -1,0 +1,177 @@
+/* ================================================= */
+/* ============ DAY 2: INTERACTION & POLISH ========= */
+/* ================================================= */
+
+/* ---------- Global smoothness ---------- */
+* {
+  transition: all 0.3s ease;
+}
+
+/* ---------- Sections styling ---------- */
+section {
+  background: linear-gradient(135deg, #ffffff, #f8fbff);
+  padding: 25px;
+  margin-bottom: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+  margin-bottom: 15px;
+  letter-spacing: 0.6px;
+  color: #1f3c88;
+}
+
+/* ---------- Navbar hover ---------- */
+.nav-list li {
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-list li:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* ---------- Input focus states ---------- */
+input,
+select {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #27ae60;
+  background-color: #ecf9f1;
+  box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.15);
+}
+
+/* ---------- Buttons ---------- */
+button {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 18px rgba(39, 174, 96, 0.35);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ---------- Habit cards ---------- */
+.habit-card {
+  background: linear-gradient(135deg, #ffffff, #f1f6ff);
+  border-radius: 18px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.habit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  /* 🔥 THIS FIXES THE BUTTON ISSUE */
+  pointer-events: none;
+}
+
+
+.habit-card:hover::before {
+  opacity: 1;
+}
+
+.habit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Fade-in animation ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.habit-card,
+.stats-grid p {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* ---------- Stats styling ---------- */
+.stats-grid p {
+  background: linear-gradient(135deg, #e8f0ff, #ffffff);
+  border-radius: 14px;
+  font-weight: 600;
+  color: #1f3c88;
+}
+
+/* ---------- Completed state (JS connected) ---------- */
+.habit-card.completed {
+  background: linear-gradient(135deg, #eafaf1, #ffffff);
+  border-left: 6px solid #27ae60;
+}
+
+.habit-card.completed h3 {
+  text-decoration: line-through;
+  color: #7f8c8d;
+}
+
+/* ================================================= */
+/* ============ DAY 2: RESPONSIVE DESIGN ============ */
+/* ================================================= */
+
+@media (max-width: 768px) {
+
+  section {
+    padding: 18px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .habit-form {
+    flex-direction: column;
+  }
+
+  .habit-form input,
+  .habit-form select {
+    width: 100%;
+  }
+
+  .habits-container {
+    flex-direction: column;
+  }
+
+  .habit-card {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

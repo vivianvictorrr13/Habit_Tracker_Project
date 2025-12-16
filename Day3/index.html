@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="style2.css">
+
+  <!-- ================= DAY 2 TASKS =================
+       Focus:
+       - Flexbox & Grid revision
+       - Hover, focus, active states
+       - Transitions & animations
+       - Responsive design (media queries)
+       ============================================== -->
+      
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header id="header">
+    <h1 class="title">Habit Tracker</h1>
+
+    <!-- DAY 2 TASK 1:
+         Add hover effects to navbar items
+         - change color
+         - underline
+         - smooth transition -->
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li>Home</li>
+        <li>Habits</li>
+        <li>Stats</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="main-container">
+
+    <!-- DAY 2 TASK 2:
+         Improve visual hierarchy:
+         - font weight
+         - spacing
+         - section separation -->
+    <section id="add-habit">
+      <h2>Add New Habit</h2>
+
+      <!-- DAY 2 TASK 3:
+           Add focus styles to inputs
+           - border color
+           - remove default outline -->
+      <form class="habit-form">
+        <input type="text" placeholder="Habit Name">
+        <select>
+          <option>Daily</option>
+          <option>Weekly</option>
+        </select>
+        <button>Add Habit</button>
+      </form>
+    </section>
+
+    <!-- DAY 2 TASK 4:
+         Enhance habit cards:
+         - hover animation
+         - shadow
+         - smooth transitions -->
+    <section id="habit-list">
+      <h2>Your Habits</h2>
+
+      <div class="habits-container">
+        <div class="habit-card">
+          <h3>Read 20 minutes</h3>
+          <p>Streak: 3 days</p>
+          <button>Done</button>
+        </div>
+
+        <div class="habit-card">
+          <h3>Exercise</h3>
+          <p>Streak: 5 days</p>
+          <button>Done</button>
+        </div>
+
+        <div class="habit-card">
+          <h3>Meditation</h3>
+          <p>Streak: 2 days</p>
+          <button>Done</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAY 2 TASK 5:
+         Add subtle animations:
+         - cards fade-in on load
+         - buttons animate on hover -->
+    <section id="stats">
+      <h2>Your Progress</h2>
+
+      <div class="stats-grid">
+        <p>Total Habits: 3</p>
+        <p>Completed Today: 1</p>
+        <p>Best Streak: 7 days</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <!-- DAY 2 TASK 6:
+       Make website responsive:
+       - stack navbar on mobile
+       - cards full-width on small screens
+       - stats grid single column -->
+  <footer id="footer">
+    <p>Habit Tracker Project</p>
+    <p>Built during Web Development Bootcamp</p>
+  </footer>
+<script>
+  /* ============================================
+     DAY 2: JAVASCRIPT INTERACTION
+     What we learn:
+     - Selecting elements
+     - Click events
+     - Changing text & styles
+  ============================================ */
+
+  // TASK 7: Mark habit as completed
+  const buttons = document.querySelectorAll(".habit-card button");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.parentElement;
+
+      // Toggle completed state
+      card.classList.toggle("completed");
+
+      // Change button text
+      if (btn.innerText === "Done") {
+        btn.innerText = "Completed ✓";
+      } else {
+        btn.innerText = "Done";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
