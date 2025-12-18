@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Click Events</title>
+  </head>
+  <body>
+    <h1 id="habitName">Reading</h1>
+    <p id="statusText">Not Completed</p>
+
+    <button id="doneButton">Done</button>
+
+    <script>
+      const doneButton = document.getElementById("doneButton");
+      const statusText = document.getElementById("statusText");
+
+      doneButton.addEventListener("click", function () {
+        statusText.innerText = "Completed ✓";
+      });
+    </script>
+  </body>
+</html>

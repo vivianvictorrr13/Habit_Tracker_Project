@@ -1,0 +1,268 @@
+/* ================================================= */
+/* ============ DAY 2: INTERACTION & POLISH ========= */
+/* ================================================= */
+
+/* ---------- Base reset & defaults ---------- */
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f3f6fb;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ---------- Layout containers ---------- */
+#header {
+  background: #1f3c88;
+  color: white;
+  padding: 20px 0;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* ---------- Navbar ---------- */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-list li:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ---------- Sections styling ---------- */
+section {
+  background: linear-gradient(135deg, #ffffff, #f8fbff);
+  padding: 25px;
+  margin-bottom: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: 0.6px;
+  color: #1f3c88;
+}
+
+/* ---------- Habit form ---------- */
+.habit-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.habit-form input {
+  flex: 1;
+  padding: 10px 14px;
+}
+
+.habit-form select,
+.habit-form button {
+  padding: 10px 14px;
+}
+
+/* ---------- Input focus states ---------- */
+input,
+select {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #27ae60;
+  background-color: #ecf9f1;
+  box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.15);
+}
+
+/* ---------- Buttons ---------- */
+button {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border: none;
+  background: #27ae60;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 18px rgba(39, 174, 96, 0.35);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ---------- Habits layout ---------- */
+.habits-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Habit cards ---------- */
+.habit-card {
+  background: linear-gradient(135deg, #ffffff, #f1f6ff);
+  border-radius: 18px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.habit-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.habit-card p {
+  margin-bottom: 14px;
+  color: #555;
+}
+
+.habit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.habit-card:hover::before {
+  opacity: 1;
+}
+
+.habit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Fade-in animation ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.habit-card,
+.stats-grid p {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* ---------- Stats ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stats-grid p {
+  background: linear-gradient(135deg, #e8f0ff, #ffffff);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  font-weight: 600;
+  color: #1f3c88;
+}
+
+/* ---------- Completed state (JS connected) ---------- */
+.habit-card.completed {
+  background: linear-gradient(135deg, #eafaf1, #ffffff);
+  border-left: 6px solid #27ae60;
+}
+
+.habit-card.completed h3 {
+  text-decoration: line-through;
+  color: #7f8c8d;
+}
+
+/* ---------- Footer ---------- */
+#footer {
+  text-align: center;
+  padding: 30px 16px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ================================================= */
+/* ============ DAY 2: RESPONSIVE DESIGN ============ */
+/* ================================================= */
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  .habit-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .habit-form input,
+  .habit-form select,
+  .habit-form button {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

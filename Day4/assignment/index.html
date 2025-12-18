@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--
+      DAY 4 ASSIGNMENT: JAVASCRIPT FUNDAMENTALS
+      ---------------------------------------
+      - You may NOT change CSS
+      - You may NOT remove existing JS behavior
+      - You may ONLY add JavaScript logic
+    -->
+  </head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header id="header">
+      <div class="header-inner">
+        <h1 class="title">Habit Tracker</h1>
+
+        <nav class="navbar">
+          <ul class="nav-list">
+            <li>Home</li>
+            <li>Habits</li>
+            <li>Stats</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main-container">
+      <!-- ================= ADD HABIT ================= -->
+      <section id="add-habit">
+        <h2>Add New Habit</h2>
+
+        <!-- DAY 3 TASK 1:
+          - Select this form in JS
+          - Prevent refresh on submit
+        -->
+        <form class="habit-form" id="habitForm">
+          <input type="text" id="habitInput" placeholder="Habit Name" />
+
+          <select id="habitFrequency">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+
+          <button type="submit">Add Habit</button>
+        </form>
+      </section>
+
+      <!-- ================= HABITS ================= -->
+      <section id="habit-list">
+        <h2>Your Habits</h2>
+
+        <!-- DAY 3 TASK 2:
+          - New habits must be added here using JS
+        -->
+        <div class="habits-container" id="habitsContainer">
+          <!-- Existing habits (DO NOT REMOVE) -->
+          <div class="habit-card">
+            <h3>Read 20 minutes</h3>
+            <p>Streak: 3 days</p>
+            <button>Done</button>
+          </div>
+
+          <div class="habit-card">
+            <h3>Exercise</h3>
+            <p>Streak: 5 days</p>
+            <button>Done</button>
+          </div>
+
+          <div class="habit-card">
+            <h3>Meditation</h3>
+            <p>Streak: 2 days</p>
+            <button>Done</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STATS ================= -->
+      <section id="stats">
+        <h2>Your Progress</h2>
+
+        <!-- DAY 3 TASK 3:
+          - Update these values dynamically using JS
+        -->
+        <div class="stats-grid">
+          <p id="totalHabits">Total Habits: 3</p>
+          <p id="completedToday">Completed Today: 1</p>
+          <p id="bestStreak">Best Streak: 7 days</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+      <p>Habit Tracker Project</p>
+      <p>Built during Web Development Bootcamp</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mini Assignment</title>
+  </head>
+  <body>
+    <h2 id="habitName">Meditation</h2>
+    <p id="streakText">Streak: 2 days</p>
+
+    <button id="increaseBtn">Increase Streak</button>
+
+    <script>
+      // 1. Create a variable for streak number
+      let streak = 2;
+
+      // 2. Select elements
+      const streakText = document.getElementById("streakText");
+      const increaseBtn = document.getElementById("increaseBtn");
+
+      // 3. Increase streak when button is clicked
+      increaseBtn.addEventListener("click", () => {
+        streak++;
+
+        // 4. Update text
+        streakText.textContent = `Streak: ${streak} days`;
+      });
+    </script>
+  </body>
+</html>
